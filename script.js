@@ -50,6 +50,6 @@ function renderListTitles() {
     console.log(output);
 }
 
-window.onload = document.getElementById(lists).innerHTML = "<span>haha</span>";
+// window.onload = document.getElementById(lists).innerHTML = "<span>haha</span>";
 
 // window.onload = renderListTitles();
