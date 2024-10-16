@@ -41,10 +41,13 @@ travelers.addItem("Kaepora");
 let listOfLists = [shoppingList, travelers]
 
 function renderListTitles() {
+    let output = "";
     for (let i = 0; i < listOfLists.length; i++) {
         let listTitle = listOfLists[i].name;
-        document.getElementById(lists).innerHTML += `<span class="listName">${listTitle}</span>`;
+        output += `<span class="listName">${listTitle}</span>`;
+        // document.getElementById(lists).innerHTML += `<span class="listName">${listTitle}</span>`;
     }
+    console.log(output);
 }
 
 window.onload = document.getElementById(lists).innerHTML = "<span>haha</span>";
