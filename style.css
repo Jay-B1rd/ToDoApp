@@ -30,8 +30,9 @@
     flex-direction: row;
 }
 
-.lists {
+.leftbar {
     display: flex;
+    flex-direction: column;
     width: 20%;
     background-color:#cfced9;
     position: fixed;
@@ -42,6 +43,11 @@
 .main {
     display: flex;
     width: 80%;
+    position: relative;
+    top: 6vh;
+    left: 22%;
+    flex-direction: column;
+    padding: 20px;
 }
 
 .newList {
@@ -56,7 +62,7 @@
     width: 100%;
     height: 3vh;
     border-radius: 5px 0 0 5px;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 #makeList {
@@ -67,4 +73,14 @@
     color: white;
     width: 4vh;
     height: 3vh;
+}
+
+#lists {
+    display: flex;
+    flex-direction: column;
+}
+
+.toplist {
+    display: flex;
+    flex-direction: row;
 }
