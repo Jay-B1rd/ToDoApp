@@ -44,12 +44,21 @@ function renderListTitles() {
     let output = "";
     for (let i = 0; i < listOfLists.length; i++) {
         let listTitle = listOfLists[i].name;
-        output += `<span class="listName">${listTitle}</span>`;
-        // document.getElementById(lists).innerHTML += `<span class="listName">${listTitle}</span>`;
+        let thisList = listOfLists[i];
+        output += `<span class="listName"">${listTitle}</span>`;
     }
-    console.log(output);
+    document.getElementById("lists").innerHTML = output;
 }
 
-// window.onload = document.getElementById(lists).innerHTML = "<span>haha</span>";
+renderListItems(listOfLists[1]);
 
-// window.onload = renderListTitles();
+renderListTitles();
+
+function renderListItems(list) {
+    let output = "";
+    for (let i = 0; i < list.items.length; i++) {
+        let addToOutput = list.items[i];
+        output += `<div class="wholeListItem"><input type="checkbox"> <span class="listItem">${addToOutput}</span></div>`;
+    }
+    document.getElementById("showList").innerHTML = output;
+}
