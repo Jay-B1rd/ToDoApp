@@ -34,7 +34,7 @@ travelers.addItem("Gabbro");
 travelers.addItem("Feldspar");
 travelers.addItem("Solanum");
 
-let listOfLists = [shoppingList, travelers]
+let listOfLists = [shoppingList, travelers];
 
 function renderListTitles() {
     let output = "";
@@ -75,4 +75,21 @@ function removeItem() {
     let chosenList = travelers; //this can be changed later to make it work on different lists, but for now it's just the one.
     chosenList.items.pop();
     renderListItems(chosenList);
+}
+
+function makeList() {
+    let listTitle = document.getElementById("newListInput").value;
+    if (!listTitle) {
+        alert("PUT A THING IN THE TEXTBOX DON'T LEAVE IT EMPTY");
+        return;
+    }
+    document.getElementById("newListInput").value = "";
+    let newList = new list(listTitle);
+    listOfLists.push(newList);
+    renderListTitles();
+}
+
+function removeList() {
+    listOfLists.pop();
+    renderListTitles();
 }

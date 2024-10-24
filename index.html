@@ -20,13 +20,14 @@
             <div class="leftbar">
                 <div class="newList">
                     <input type="text" id="newListInput" placeholder="Make New List...">
-                    <button id="makeList">+</button>
+                    <button id="makeList" onclick="makeList()">+</button>
                 </div>
                 <div id="lists">
                     <span class="listName">Insert List Name</span>
                     <span class="listName">Insert List Name</span>
                     <span class="listName">Insert List Name</span>
                 </div>
+                <button onclick="removeList()">Remove Last List</button>
             </div>
             <div class="main">
                 <div class="toplist">
