@@ -22,6 +22,18 @@ class list {
     }
 }
 
+let toDoList = new list("ToDo App");
+toDoList.addItem("User must be able to create multiple lists of tasks.");
+toDoList.addItem("User must be able to edit, delete, and mark tasks.");
+toDoList.addItem("User must be able to clear tasks when they are complete.");
+toDoList.addItem("User must be able to view all tasks in a list.");
+toDoList.addItem("User must be able to search for specific tasks in the list.");
+toDoList.addItem("User must be able to save tasks for later viewing.");
+toDoList.addItem("User must be able to mark tasks as completed.");
+toDoList.addItem("User must be able to delete tasks from list.");
+toDoList.addItem("User must be able to customize task list view.");
+toDoList.addItem("App must be intuitive and easy to use.");
+
 let shoppingList = new list("Shopping List");
 shoppingList.addItem("Sugar");
 shoppingList.addItem("Milk");
@@ -38,7 +50,7 @@ travelers.addItem("Gabbro");
 travelers.addItem("Feldspar");
 travelers.addItem("Solanum");
 
-let listOfLists = [shoppingList, travelers];
+let listOfLists = [toDoList, shoppingList, travelers];
 let chosenIndex = 0;
 renderListItems(0);
 renderListTitles();
@@ -105,22 +117,28 @@ function removeItem() {
     listOfLists[chosenIndex].removeItem();
     renderListItems(chosenIndex);
 }
-/*
-function addItem() {
-    let item = document.getElementById("addItemInput").value;
-    if (!item) {
-        alert("PUT A THING IN THE TEXTBOX DON'T LEAVE IT EMPTY");
-        return;
+
+function saveList() {
+    // console.log(listOfLists[chosenIndex]);
+    let objectToSave = listOfLists[chosenIndex];
+    // console.log(objectToSave);
+    let savedArray = [];
+    savedArray.push(objectToSave.name);
+    for (let i = 0; i < objectToSave.items.length; i++) {
+        savedArray.push(objectToSave.items[i]);
     }
-    document.getElementById("addItemInput").value = "";
-    let chosenList = listOfLists[chosenIndex]; //this can be changed later to make it work on different lists, but for now it's just the one.
-    chosenList.addItem(item);
-    renderListItems(chosenList);
+    // console.log(savedArray);
+    localStorage.setItem("currentList", JSON.stringify(savedArray));
 }
 
-function removeItem() {
-    let chosenList = listOfLists[chosenIndex]; //this can be changed later to make it work on different lists, but for now it's just the one.
-    chosenList.removeItem();
-    renderListItems(chosenList);
+function loadList() {
+    let loadedObject = JSON.parse(localStorage.getItem('currentList'));
+    //console.log(loadedObject);
+    let newList = new list(loadedObject[0]);
+    for (let i = 1; i < loadedObject.length; i++) {
+        newList.items.push(loadedObject[i]);
+    }
+    //console.log(newList);
+    listOfLists.push(newList);
+    renderListTitles();
 }
-*/
