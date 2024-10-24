@@ -24,9 +24,6 @@ shoppingList.addItem("Milk");
 shoppingList.addItem("Cheese");
 shoppingList.addItem("Flour");
 shoppingList.addItem("Eggs");
-shoppingList.consoleLog();
-shoppingList.removeItem(2);
-shoppingList.consoleLog();
 
 let travelers = new list("Travelers");
 travelers.addItem("Chert");
@@ -36,7 +33,6 @@ travelers.addItem("Riebeck");
 travelers.addItem("Gabbro");
 travelers.addItem("Feldspar");
 travelers.addItem("Solanum");
-travelers.addItem("Kaepora");
 
 let listOfLists = [shoppingList, travelers]
 
@@ -61,4 +57,22 @@ function renderListItems(list) {
         output += `<div class="wholeListItem"><input type="checkbox"> <span class="listItem">${addToOutput}</span></div>`;
     }
     document.getElementById("showList").innerHTML = output;
+}
+
+function addItem() {
+    let item = document.getElementById("addItemInput").value;
+    if (!item) {
+        alert("PUT A THING IN THE TEXTBOX DON'T LEAVE IT EMPTY");
+        return;
+    }
+    document.getElementById("addItemInput").value = "";
+    let chosenList = travelers; //this can be changed later to make it work on different lists, but for now it's just the one.
+    chosenList.items.push(item);
+    renderListItems(chosenList);
+}
+
+function removeItem() {
+    let chosenList = travelers; //this can be changed later to make it work on different lists, but for now it's just the one.
+    chosenList.items.pop();
+    renderListItems(chosenList);
 }
